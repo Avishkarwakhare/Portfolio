@@ -1,6 +1,14 @@
-import { useRef } from 'react'
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { Link2, Github } from 'lucide-react'
+import { useState, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Link2, Github, X, ExternalLink } from 'lucide-react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/effect-coverflow'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 // Projects data featuring images, bulleted formats, and tags
 const projects = [
@@ -64,110 +72,115 @@ const projects = [
   }
 ]
 
-function ProjectCard({ project, index }) {
-  const x = useMotionValue(0)
-  const y = useMotionValue(0)
-
-  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 })
-  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 })
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["4deg", "-4deg"])
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-4deg", "4deg"])
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const width = rect.width
-    const height = rect.height
-    const mouseX = e.clientX - rect.left
-    const mouseY = e.clientY - rect.top
-    const xPct = mouseX / width - 0.5
-    const yPct = mouseY / height - 0.5
-    x.set(xPct)
-    y.set(yPct)
-  }
-
-  const handleMouseLeave = () => {
-    x.set(0)
-    y.set(0)
-  }
+function ProjectModal({ project, isOpen, onClose }) {
+  if (!project) return null;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d", perspective: 1200 }}
-      className="w-full relative group"
-    >
-      <div
-        className="w-full relative bg-[#0a0618]/40 backdrop-blur-xl border border-white/5 rounded-[2rem] p-6 md:p-10 hover:border-white/10 transition-colors duration-500 shadow-[0_0_50px_-20px_rgba(0,0,0,0.5)] flex flex-col group-hover:bg-[#0c0822]/60"
-        style={{ transform: "translateZ(20px)", transformStyle: "preserve-3d" }}
-      >
-        <div style={{ transform: "translateZ(50px)" }} className="flex items-center gap-3 mb-6 w-full relative z-20">
-          <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight drop-shadow-lg">{project.title}</h3>
-          <Link2 className="text-neutral-500 w-5 h-5 md:w-6 md:h-6 mt-1" />
-        </div>
-
-        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-between mb-8 w-full relative z-20">
-
-          <div
-            style={{ transform: "translateZ(40px)" }}
-            className="w-full md:flex-1 aspect-[16/9] md:aspect-[2/1] rounded-2xl overflow-hidden shadow-[0_15px_40px_-10px_rgba(0,0,0,0.8)] relative border border-white/5 group-hover:border-white/10 transition-colors duration-500"
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="absolute inset-0 bg-black/80 backdrop-blur-md"
+          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="relative w-full max-w-4xl bg-[#0a0618] border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-          </div>
+            <button
+              onClick={onClose}
+              className="absolute top-6 right-6 z-10 p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors text-white"
+            >
+              <X className="w-6 h-6" />
+            </button>
 
-          <div
-            style={{ transform: "translateZ(60px)" }}
-            className="flex flex-row md:flex-col gap-4 shrink-0"
-          >
-            <a href={project.link} target="_blank" rel="noopener noreferrer" className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#0c0822] border border-[#a855f7]/50 flex items-center justify-center text-[#a855f7] hover:bg-[#a855f7] hover:text-white transition-colors shadow-[0_0_20px_rgba(168,85,247,0.3)]">
-              <Link2 className="w-5 h-5 md:w-6 md:h-6" />
-            </a>
-            <a href={project.github} target="_blank" rel="noopener noreferrer" className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#0c0822] border border-[#a855f7]/50 flex items-center justify-center text-[#a855f7] hover:bg-[#a855f7] hover:text-white transition-colors shadow-[0_0_20px_rgba(168,85,247,0.3)]">
-              <Github className="w-5 h-5 md:w-6 md:h-6" />
-            </a>
-          </div>
+            <div className="w-full md:w-1/2 aspect-video md:aspect-auto relative overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0618] via-transparent to-transparent md:hidden" />
+            </div>
+
+            <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col overflow-y-auto max-h-[60vh] md:max-h-none">
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">{project.title}</h3>
+              
+              <p className="text-neutral-300 text-lg mb-6 leading-relaxed">
+                {project.summary}
+              </p>
+
+              <div className="space-y-4 mb-8">
+                <h4 className="text-white font-semibold flex items-center gap-2">
+                  Key Features
+                </h4>
+                <ul className="space-y-2">
+                  {project.features.map((feature, i) => (
+                    <li key={i} className="text-neutral-400 text-sm flex gap-2">
+                      <span className="text-[#a855f7] mt-1">•</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex flex-wrap gap-2 mb-8">
+                {project.tags.map(tag => (
+                  <span
+                    key={tag.name}
+                    className="px-3 py-1 rounded-full text-xs font-mono border border-white/5"
+                    style={{ color: tag.color, backgroundColor: `${tag.color}10` }}
+                  >
+                    #{tag.name}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex gap-4 mt-auto">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                  Live Preview
+                </a>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white font-semibold transition-all flex items-center justify-center gap-2 border border-white/10"
+                >
+                  <Github className="w-5 h-5" />
+                  Code
+                </a>
+              </div>
+            </div>
+          </motion.div>
         </div>
-
-        <div className="flex flex-col relative z-20 w-full">
-          <p style={{ transform: "translateZ(30px)" }} className="text-base md:text-lg text-neutral-300 mb-6 font-medium leading-relaxed max-w-4xl">
-            {project.summary}
-          </p>
-
-          <ul style={{ transform: "translateZ(25px)" }} className="list-disc list-outside text-[0.95rem] md:text-[1.05rem] text-neutral-400 ml-5 space-y-2 mb-8 marker:text-neutral-600 font-light tracking-wide max-w-4xl">
-            {project.features.map((feature, i) => (
-              <li key={i}>{feature}</li>
-            ))}
-          </ul>
-
-          <div style={{ transform: "translateZ(35px)" }} className="flex flex-wrap gap-4 mt-auto">
-            {project.tags.map(tag => (
-              <span key={tag.name} className="text-sm md:text-base font-bold font-mono tracking-tight" style={{ color: tag.color }}>
-                #{tag.name}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
 
 export default function Projects() {
-  const containerRef = useRef(null)
+  const [selectedProject, setSelectedProject] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleProjectClick = (project) => {
+    setSelectedProject(project)
+    setIsModalOpen(true)
+  }
 
   return (
-    <div ref={containerRef} className="w-full flex flex-col relative z-20 py-24 min-h-screen">
-
+    <div className="w-full flex flex-col relative z-20 py-16 min-h-[50vh]">
+      {/* Background Gradients */}
       <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[150px] -z-10 pointer-events-none mix-blend-screen" />
       <div className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[150px] -z-10 pointer-events-none mix-blend-screen" />
 
@@ -176,24 +189,89 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="w-full flex flex-col mb-16 md:mb-24 px-2 relative"
+        className="w-full flex flex-col mb-12 md:mb-16 px-4 relative"
       >
-        <div className="absolute -left-48 top-0 w-[1200px] h-72 bg-gradient-to-r from-purple-600/40 via-fuchsia-500/10 to-transparent blur-[140px] -z-10 pointer-events-none" />
-
         <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-4">MY WORK</p>
         <h2 className="text-6xl md:text-[5.5rem] font-bold text-white mb-8 tracking-tighter">Projects.</h2>
         <p className="text-lg md:text-[1.1rem] text-muted-foreground leading-[1.8] font-medium max-w-[48rem]">
           Following projects showcases my skills and experience through real-world examples of my work.
-          Each project is briefly described with links to code repositories and live demos in it.
-          It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.
+          Click on any project to see detailed information and links.
         </p>
       </motion.div>
 
-      <div className="flex flex-col gap-16 md:gap-32 w-full">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} />
-        ))}
+      <div className="w-full px-4 overflow-visible">
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={'auto'}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          pagination={{ clickable: true }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+          className="mySwiper !pb-14"
+        >
+          {projects.map((project) => (
+            <SwiperSlide
+              key={project.id}
+              className="!w-[300px] md:!w-[500px]"
+              onClick={() => handleProjectClick(project)}
+            >
+              <div className="group relative w-full aspect-[4/5] md:aspect-[16/10] rounded-[2rem] overflow-hidden bg-[#0A0A0A] border border-white/5 cursor-pointer hover:border-white/20 transition-all duration-500">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent transition-opacity duration-500 group-hover:opacity-80" />
+                
+                <div className="absolute bottom-0 left-0 w-full p-8 md:p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-lg">{project.title}</h3>
+                  <div className="flex items-center gap-2 text-purple-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <span>View Details</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
+
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        .swiper-pagination-bullet {
+          background: rgba(255, 255, 255, 0.2) !important;
+          opacity: 1 !important;
+          width: 10px !important;
+          height: 10px !important;
+          transition: all 0.3s ease !important;
+        }
+        .swiper-pagination-bullet-active {
+          background: #a855f7 !important;
+          width: 30px !important;
+          border-radius: 5px !important;
+        }
+        .swiper-3d .swiper-slide-shadow-left,
+        .swiper-3d .swiper-slide-shadow-right {
+          background-image: none !important;
+          background: rgba(0,0,0,0.5) !important;
+        }
+      `}} />
     </div>
   )
 }

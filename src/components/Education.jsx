@@ -6,7 +6,7 @@ const education = [
     school: "Lovely Professional University",
     location: "Punjab, India",
     date: "Since Aug' 23",
-    score: "CGPA: 6.79"
+    score: "CGPA: 7.32"
   },
   {
     degree: "Intermediate",

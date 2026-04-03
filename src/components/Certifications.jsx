@@ -11,6 +11,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 const certs = [
+  { name: "OCI 2025 Certified AI Foundations Associate", issuer: "Oracle", date: "Mar' 26", link: "https://drive.google.com/file/d/1X5dX3JAk8oWcnoV6PSJb_0pumRYC3zhP/view?usp=sharing" },
   { name: "Privacy And Security In Social Media", issuer: "NPTEL", date: "Nov' 25", link: "https://drive.google.com/file/d/1311fLa5xCkFJnf9wg9fik7LNSoewZ2Py/view" },
   { name: "Master Generative AI & Generative AI tools", issuer: "Udemy", date: "Aug' 25", link: "https://drive.google.com/file/d/1wrKMTgNws3HUsgoEyOXnbnnLXYBLXo2g/view" },
   { name: "The Bits and Bytes of Computer Networking", issuer: "Google", date: "Sep' 24", link: "https://drive.google.com/file/d/1keLJGaX8FS0YVKZnMWxurWOCzxd_48QE/view?usp=sharing" },

@@ -11,12 +11,12 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 const certs = [
-  { name: "OCI 2025 Certified AI Foundations Associate", issuer: "Oracle", date: "Mar' 26", link: "https://drive.google.com/file/d/1X5dX3JAk8oWcnoV6PSJb_0pumRYC3zhP/view?usp=sharing" },
-  { name: "Privacy And Security In Social Media", issuer: "NPTEL", date: "Nov' 25", link: "https://drive.google.com/file/d/1311fLa5xCkFJnf9wg9fik7LNSoewZ2Py/view" },
-  { name: "Master Generative AI & Generative AI tools", issuer: "Udemy", date: "Aug' 25", link: "https://drive.google.com/file/d/1wrKMTgNws3HUsgoEyOXnbnnLXYBLXo2g/view" },
-  { name: "The Bits and Bytes of Computer Networking", issuer: "Google", date: "Sep' 24", link: "https://drive.google.com/file/d/1keLJGaX8FS0YVKZnMWxurWOCzxd_48QE/view?usp=sharing" },
-  { name: "Introduction to Hardware and Operating Systems", issuer: "IBM", date: "Sep' 24", link: "https://drive.google.com/file/d/1HypoMX3fRWn1PEoAnsE1cNZxF9K8rAoL/view?usp=sharing" },
-  { name: "Responsive Web Design", issuer: "Free Code Camp", date: "Oct' 23", link: "https://www.freecodecamp.org/certification/fcc4b82ae45-bbc7-45f4-a983-00069a301da9/responsive-web-design" }
+  { name: "OCI 2025 Certified AI Foundations Associate", issuer: "Oracle", date: "Mar 2026", link: "https://drive.google.com/file/d/1X5dX3JAk8oWcnoV6PSJb_0pumRYC3zhP/view?usp=sharing" },
+  { name: "Privacy And Security In Social Media", issuer: "NPTEL", date: "Nov 2025", link: "https://drive.google.com/file/d/1311fLa5xCkFJnf9wg9fik7LNSoewZ2Py/view" },
+  { name: "Master Generative AI & Generative AI tools", issuer: "Udemy", date: "Aug 2025", link: "https://drive.google.com/file/d/1wrKMTgNws3HUsgoEyOXnbnnLXYBLXo2g/view" },
+  { name: "The Bits and Bytes of Computer Networking", issuer: "Google", date: "Sep 2024", link: "https://drive.google.com/file/d/1keLJGaX8FS0YVKZnMWxurWOCzxd_48QE/view?usp=sharing" },
+  { name: "Introduction to Hardware and Operating Systems", issuer: "IBM", date: "Sep 2024", link: "https://drive.google.com/file/d/1HypoMX3fRWn1PEoAnsE1cNZxF9K8rAoL/view?usp=sharing" },
+  { name: "Responsive Web Design", issuer: "Free Code Camp", date: "Oct 2023", link: "https://www.freecodecamp.org/certification/fcc4b82ae45-bbc7-45f4-a983-00069a301da9/responsive-web-design" }
 ]
 
 function CertModal({ cert, isOpen, onClose }) {

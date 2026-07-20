@@ -4,22 +4,22 @@ const education = [
   {
     degree: "Bachelor of Technology | Computer Science and Engineering",
     school: "Lovely Professional University",
-    location: "Punjab, India",
-    date: "Since Aug' 23",
-    score: "CGPA: 7.32"
+    location: "Phagwara, Punjab",
+    date: "Aug 2023 - Present",
+    score: "CGPA: 7.19"
   },
   {
     degree: "Intermediate",
     school: "Army Public School",
     location: "Ambala Cantt, Haryana",
-    date: "Apr' 22 - Mar' 23",
+    date: "Apr 2022 - Mar 2023",
     score: "Percentage: 71%"
   },
   {
     degree: "Matriculation",
     school: "Army Public School",
     location: "Ambala Cantt, Haryana",
-    date: "Apr' 20 - Mar' 21",
+    date: "Apr 2020 - Mar 2021",
     score: "Percentage: 88%"
   }
 ]

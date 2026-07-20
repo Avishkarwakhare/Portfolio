@@ -26,7 +26,7 @@ export default function Training() {
           </div>
           <div className="flex flex-col gap-4 items-end">
             <span className="px-5 py-2.5 bg-pink-500/10 text-pink-300 font-mono tracking-wider rounded-xl border border-pink-500/30 w-fit whitespace-nowrap">
-              June '25 – July '25
+              Jun 2025 - Jul 2025
             </span>
             <a 
               href="https://drive.google.com/file/d/1V_x3o4TuwvggVU7EkgWsGoyskqozuSKr/view?pli=1" 

@@ -157,20 +157,6 @@ export default function Certifications() {
         onClose={() => setIsModalOpen(false)}
       />
 
-      <style dangerouslySetInnerHTML={{ __html: `
-        .certSwiper .swiper-pagination-bullet {
-          background: rgba(59, 130, 246, 0.2) !important;
-          opacity: 1 !important;
-          width: 10px !important;
-          height: 10px !important;
-          transition: all 0.3s ease !important;
-        }
-        .certSwiper .swiper-pagination-bullet-active {
-          background: #3b82f6 !important;
-          width: 30px !important;
-          border-radius: 5px !important;
-        }
-      `}} />
     </div>
   )
 }

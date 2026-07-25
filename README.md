@@ -1,73 +1,76 @@
-# React + TypeScript + Vite
+# Personal Portfolio | Avishkar Wakhare
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, interactive personal portfolio website designed to showcase my academic details, technical skills, certifications, and recent projects. Built using React, Vite, Tailwind CSS, and Framer Motion, it features a fluid 3D cosmic background using Three.js/Fiber.
 
-Currently, two official plugins are available:
+## 🚀 Live Preview
+Explore the portfolio online: [avishkarwakhare.vercel.app](https://github.com/Avishkarwakhare)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
+- **3D Cosmic Background:** An interactive starry space background and floating objects that react smoothly to pointer movements, built with `@react-three/fiber`.
+- **Interactive Projects & Credentials Showcase:** Uses custom touch-responsive Swiper carousels with beautiful 3D coverflow effects to view certifications and project highlights.
+- **Smooth Inertial Scrolling:** Integrated with Lenis scroll for a premium, native-feeling scroll experience across all browsers.
+- **Fully Responsive Layout:** Optimized for mobile, tablet, and desktop screens with tailored animations for each layout size.
+- **Interactive Contact Form:** A clean form integrated with Formspree for direct, seamless email dispatching.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
+- **Core:** React 19, JavaScript (ES6+), HTML5, CSS3
+- **Styling:** Tailwind CSS (v3), PostCSS
+- **Animations:** Framer Motion, Three.js, React Three Fiber (R3F), @react-three/drei
+- **Utilities:** Lenis, Lucide React, Swiper, Class Variance Authority (CVA), clsx
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ⚙️ Project Setup & Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+To run this project locally, ensure you have [Node.js](https://nodejs.org/) installed, then follow these steps:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Avishkarwakhare/Portfolio.git
+cd Portfolio
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 2. Install Dependencies
+```bash
+npm install
 ```
+
+### 3. Start Development Server
+```bash
+npm run dev
+```
+Open your browser and navigate to `http://localhost:5173`.
+
+### 4. Build for Production
+To generate a highly optimized production build, run:
+```bash
+npm run build
+```
+The output directory will be generated under `/dist`, ready to deploy to Vercel, Netlify, or AWS.
+
+---
+
+## 📂 Project Structure
+```text
+├── public/                 # Static assets (PDFs, icons)
+├── src/
+│   ├── assets/             # Images and design assets
+│   ├── components/         # Core UI sections (Overview, Projects, etc.)
+│   │   └── ui/             # Reusable Shadcn UI blocks (Button, Input, Textarea)
+│   ├── lib/                # Utility helper scripts
+│   ├── App.jsx             # Main layout and section router
+│   ├── index.css           # Global Tailwind classes and Swiper configurations
+│   └── main.jsx            # React root entrypoint
+├── package.json            # Configuration and script file
+├── tailwind.config.js      # Tailwind theme configuration
+└── vite.config.js          # Vite configurations
+```
+
+---
+
+## 📄 License
+This project is open-source. Feel free to use it as inspiration for your own portfolios!

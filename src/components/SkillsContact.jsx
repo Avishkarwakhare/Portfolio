@@ -125,7 +125,7 @@ export default function SkillsContact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="What's your good name?" 
+                  placeholder="Enter your name" 
                   className="bg-[#1a1233] border-transparent h-12 rounded-xl text-base text-white placeholder:text-gray-500 focus-visible:ring-1 focus-visible:ring-white/20 transition-all" 
                 />
               </div>
@@ -137,7 +137,7 @@ export default function SkillsContact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="What's your web address?" 
+                  placeholder="Enter your email address" 
                   className="bg-[#1a1233] border-transparent h-12 rounded-xl text-base text-white placeholder:text-gray-500 focus-visible:ring-1 focus-visible:ring-white/20 transition-all" 
                 />
               </div>
@@ -148,7 +148,7 @@ export default function SkillsContact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  placeholder="What you want to say?" 
+                  placeholder="Write your message here..." 
                   rows={3} 
                   className="bg-[#1a1233] border-transparent resize-none rounded-xl text-base text-white placeholder:text-gray-500 focus-visible:ring-1 focus-visible:ring-white/20 p-4 transition-all" 
                 />

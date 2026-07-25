@@ -39,25 +39,6 @@ export default function Overview() {
             className="w-full max-w-sm relative group"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/30 to-blue-500/30 rounded-[3rem] blur-2xl group-hover:blur-3xl transition-all duration-500 -z-10" />
-            
-            {/* <div className="relative aspect-[3/4] p-[2px] bg-gradient-to-br from-purple-500/50 via-transparent to-blue-500/50 rounded-[3rem] overflow-hidden backdrop-blur-sm shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-              <div className="absolute inset-0 bg-[#0a0a0c]/80 -z-10" />
-              <img 
-                src={heroImg} 
-                alt="Your Photo" 
-                className="w-full h-full object-cover rounded-[2.9rem] opacity-90 hover:opacity-100 transition-opacity duration-500"
-              />
-              
-              <div className="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-purple-400/50 rounded-tl-xl" />
-              <div className="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-blue-400/50 rounded-br-xl" />
-            </div> */}
-
-            {/* <div className="absolute -bottom-6 -right-6 p-4 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl hidden md:block">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-xs font-mono text-white/70 uppercase tracking-tighter">Availability: Open</span>
-              </div>
-            </div> */}
           </motion.div>
         </motion.div>
       </div>

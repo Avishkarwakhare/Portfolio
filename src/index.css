@@ -72,3 +72,39 @@
     }
   }
 }
+
+/* Swiper custom overrides for Projects and Certifications */
+.mySwiper .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.2) !important;
+  opacity: 1 !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: all 0.3s ease !important;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  background: #a855f7 !important;
+  width: 30px !important;
+  border-radius: 5px !important;
+}
+
+.mySwiper.swiper-3d .swiper-slide-shadow-left,
+.mySwiper.swiper-3d .swiper-slide-shadow-right {
+  background-image: none !important;
+  background: rgba(0,0,0,0.5) !important;
+}
+
+.certSwiper .swiper-pagination-bullet {
+  background: rgba(59, 130, 246, 0.2) !important;
+  opacity: 1 !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: all 0.3s ease !important;
+}
+
+.certSwiper .swiper-pagination-bullet-active {
+  background: #3b82f6 !important;
+  width: 30px !important;
+  border-radius: 5px !important;
+}
+

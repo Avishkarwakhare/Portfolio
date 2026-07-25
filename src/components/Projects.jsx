@@ -4,13 +4,12 @@ import { Link2, Github, X, ExternalLink } from 'lucide-react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules'
 
-// Import Swiper styles
+
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
-// Projects data featuring images, bulleted formats, and tags
 const projects = [
   {
     id: 1,
@@ -180,7 +179,7 @@ export default function Projects() {
 
   return (
     <div className="w-full flex flex-col relative z-20 py-16 min-h-[50vh]">
-      {/* Background Gradients */}
+      
       <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[150px] -z-10 pointer-events-none mix-blend-screen" />
       <div className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[150px] -z-10 pointer-events-none mix-blend-screen" />
 
@@ -253,25 +252,7 @@ export default function Projects() {
         onClose={() => setIsModalOpen(false)}
       />
 
-      <style dangerouslySetInnerHTML={{ __html: `
-        .swiper-pagination-bullet {
-          background: rgba(255, 255, 255, 0.2) !important;
-          opacity: 1 !important;
-          width: 10px !important;
-          height: 10px !important;
-          transition: all 0.3s ease !important;
-        }
-        .swiper-pagination-bullet-active {
-          background: #a855f7 !important;
-          width: 30px !important;
-          border-radius: 5px !important;
-        }
-        .swiper-3d .swiper-slide-shadow-left,
-        .swiper-3d .swiper-slide-shadow-right {
-          background-image: none !important;
-          background: rgba(0,0,0,0.5) !important;
-        }
-      `}} />
+      
     </div>
   )
 }

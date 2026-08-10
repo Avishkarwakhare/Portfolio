@@ -13,6 +13,32 @@ import 'swiper/css/navigation'
 const projects = [
   {
     id: 1,
+    title: "AI powered Splitwise with inbuild payment options",
+    image: "/split.png",
+    summary: "A MERN expense-splitter with an AI-powered, UPI-integrated settlement engine that solves gaps Splitwise still hasn't.",
+    features: [
+      "Settles debts in the fewest payments possible — instead of a messy list of who-owes-who, a debt-simplification algorithm calculates",
+      "the minimum transactions needed to clear an entire group's balances.",
+      
+      "Friends don't need an account to get added — just type their name into a split; they join later via an invite link and instantly", 
+      "inherit every expense they were already part of.",
+
+      "AI does the data entry for you — describe an expense in plain English or upload a receipt photo, and it auto-fills the amount, split,",
+      "and even individual line items.",
+
+      "Real payments, not just math — each person's UPI ID powers a built-in 'Pay' button, so settling up is a QR scan away instead of switching", 
+      "apps and typing numbers."
+    ],
+    tags: [
+      { name: "javascript", color: "#f7df1e" },
+      { name: "php", color: "#777bb4" },
+      { name: "mysql", color: "#4479a1" }
+    ],
+    link: "https://splitladder.vercel.app/",
+    github: "https://github.com/Avishkarwakhare/Expense-Splitter"
+  },
+  {
+    id: 2,
     title: "Markdown Blog Platform",
     image: "/markblog_dash.png",
     summary: "A robust full-stack blogging platform that allows users to write, edit, and publish blogs smoothly using Markdown.",
@@ -32,7 +58,7 @@ const projects = [
     github: "https://github.com/Avishkarwakhare/Blogging-Platform"
   },
   {
-    id: 2,
+    id: 3,
     title: "Exam Paper Generator",
     image: "/exam.png",
     summary: "A comprehensive educational management system allowing teachers to dynamically create question banks and assign exams.",
@@ -47,13 +73,13 @@ const projects = [
       { name: "ai-integration", color: "#ff4d4f" },
       { name: "tailwindcss", color: "#38bdf8" }
     ],
-    link: "https://github.com/Avishkarwakhare/Exam-paper-generator",
+    link: "https://exampanna.vercel.app/",
     github: "https://github.com/Avishkarwakhare/Exam-paper-generator"
   },
   {
-    id: 3,
+    id: 4,
     title: "Live Sports Scoreboard",
-    image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&q=80&w=2605",
+    image: "/sports.png",
     summary: "A dynamic real-time sports scoreboard application showing live scores, detailed match updates, and player statistics for major cricket and football leagues.",
     features: [
       "Real-time live score updates utilizing Rapid API for extreme low latency.",

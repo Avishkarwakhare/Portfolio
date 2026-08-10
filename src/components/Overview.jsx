@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import heroImg from '../assets/photo.png'
+import heroImg from '../assets/girl.png'
 
 export default function Overview() {
   return (

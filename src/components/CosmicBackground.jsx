@@ -1,6 +1,6 @@
 import { useRef, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Points, PointMaterial, Icosahedron, TorusKnot, MeshDistortMaterial, Float, Environment } from '@react-three/drei'
+import { Points, PointMaterial, Environment } from '@react-three/drei'
 import * as THREE from 'three'
 
 function Starfield(props) {
@@ -62,38 +62,7 @@ function FloatingObjects() {
 
   return (
     <group ref={groupRef}>
-
-      <Float speed={2.5} rotationIntensity={2} floatIntensity={3} position={[-3, 1, -2]}>
-        <Icosahedron args={[1.2, 0]}>
-          <MeshDistortMaterial
-            color="#ecc94b"
-            attach="material"
-            distort={0.3}
-            speed={2}
-            roughness={0}
-            metalness={1}
-            wireframe={true}
-          />
-        </Icosahedron>
-      </Float>
-
-
-      <Float speed={2} rotationIntensity={4} floatIntensity={2} position={[3.5, -0.5, -4]}>
-        <TorusKnot args={[1, 0.3, 128, 32]}>
-          <meshPhysicalMaterial 
-            color="#3b82f6" 
-            roughness={0.1}
-            metalness={0.8}
-            clearcoat={1}
-            clearcoatRoughness={0.1}
-            transmission={0.9}
-            thickness={2}
-            transparent={true}
-            opacity={0.9}
-          />
-        </TorusKnot>
-      </Float>
-      
+      {/* Floating 3D objects removed as requested */}
       <ambientLight intensity={0.2} />
       <directionalLight position={[10, 10, 5]} intensity={2} color="#ffffff" />
       <pointLight position={[-10, 10, -5]} intensity={5} color="#8b5cf6" />
